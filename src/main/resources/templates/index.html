@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"            
+      layout:decorate="~{fragments/layout}">
+<body>
+  <div layout:fragment="content" th:remove="tag">
+			<form id="replicateaiForm" enctype="multipart/form-data" th:object="${replicateaiBean}" th:action="@{/predict}" method="post">
+				<h6 class="m-3">[[#{description}]]</h6>
+				<div class="m-3 border border-info rounded">				    
+				    <label for="father" class="form-label mx-2">[[#{father}]]</label>
+				    <div class="row text-center align-items-center d-flex mb-2">
+				      <div class="col-1 ms-2">
+				        <div id="father-preview">
+                          <i class="fa-solid fa-person text-primary fs-3"></i>
+                        </div>                        
+                      </div>
+                      <div class="col me-2">           
+                        <input class="form-control" type="file" id="father" name="father" th:field="*{father}" accept="image/png, image/jpg, image/jpeg">
+                      </div>                        
+                    </div>				    
+				</div>
+				<div class="m-3 border border-info rounded">
+				    <label for="mother" class="form-label mx-2">[[#{mother}]]</label>
+				    <div class="row text-center align-items-center d-flex mb-2">
+				      <div class="col-1 ms-2">
+				        <div id="mother-preview">
+                          <i class="fa-solid fa-person-dress text-primary fs-3"></i>
+                        </div>                        
+                      </div>
+                      <div class="col me-2">  				    
+                        <input class="form-control" type="file" id="mother" name="mother" th:field="*{mother}"accept="image/png, image/jpg, image/jpeg">
+                      </div>                        
+                    </div>	
+				</div>
+				
+				<div class="m-3 border border-info rounded">
+				  <label class="form-label mx-2"><i class="fa-solid fa-baby text-primary"></i> [[#{gender}]]</label>
+				  <div class="m-2">
+	                <input class="form-check-input" type="radio" name="gender" id="boy" value="boy" checked/>
+	                <label class="form-check-label" for="boy">[[#{boy}]]</label>                  
+	                <input class="form-check-input" type="radio" name="gender" id="girl" value="girl"/>
+	                <label class="form-check-label" for="girl">[[#{girl}]]</label>
+	              </div>
+                </div>              
+				
+				<div class="text-center my-3">
+					<button id="submitReplicateai"
+						class="btn btn-lg btn-primary text-center" type="submit"><i class="fa-solid fa-user-gear"></i>  [[#{predict}]]</button>
+				</div>
+			</form>
+  </div>
+</body>
+</html>

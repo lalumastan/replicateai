@@ -36,7 +36,6 @@ public class ApplicationService {
 		try {
             byte[] imageBytes = file.getBytes();
             base64Image = Base64.getEncoder().encodeToString(imageBytes);
-            //System.out.println(file.getName() + ": " +  base64Image);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,25 +51,10 @@ public class ApplicationService {
 		headers.setContentType(MediaType.APPLICATION_JSON);		
 
 		String jsonString = OM.writeValueAsString(new Request(new Input(convertToBase64String(formBean.getFather()), convertToBase64String(formBean.getMother()), formBean.getGender())));
-		//System.out.println(jsonString);
 		HttpEntity<String> entity = new HttpEntity<String>(jsonString, headers);
 		RestTemplate restTemplate = new RestTemplate();
 		
-		/*
-		List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
-		if (CollectionUtils.isEmpty(interceptors)) {
-		    interceptors = new ArrayList<>();
-		}
-		interceptors.add(new LoggingRequestInterceptor());
-		restTemplate.setInterceptors(interceptors);
-		*/
-		
 		ResponseEntity<Response> responseEntity = restTemplate.exchange(API_URL, httpMethod, entity, Response.class);
-		//String response = restTemplate.postForObject(API_URL, entity, String.class);
-
-		//Response response = responseEntity.getBody();
-
-		//System.out.println(response);
 		
 		return responseEntity.getBody();
 	}
@@ -82,27 +66,13 @@ public class ApplicationService {
 		headers.set("Authorization", "Token " + KEY);
 		headers.setContentType(MediaType.APPLICATION_JSON);		
 
-		//String jsonString = OM.writeValueAsString(new Request(new Input(convertToBase64String(replicateaiBean.getFather()), convertToBase64String(replicateaiBean.getMother()), replicateaiBean.getGender())));
-		//System.out.println(jsonString);
 		HttpEntity<String> entity = new HttpEntity<String>(headers);
 		RestTemplate restTemplate = new RestTemplate();
 		
-		/*
-		List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
-		if (CollectionUtils.isEmpty(interceptors)) {
-		    interceptors = new ArrayList<>();
-		}
-		interceptors.add(new LoggingRequestInterceptor());
-		restTemplate.setInterceptors(interceptors);
-		*/
-		
 		ResponseEntity<Response> responseEntity = restTemplate.exchange(API_URL + "/" + requestPath, httpMethod, entity, Response.class);
-		//String response = restTemplate.postForObject(API_URL, entity, String.class);
 
 		Response response = responseEntity.getBody();
 
-		//System.out.println(response);
-		
 		if (responseEntity.getStatusCode() == HttpStatus.OK) {
 		   String status = response.status();
 		   return "succeeded".equals(status) ? response.output(): status;

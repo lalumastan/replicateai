@@ -4,7 +4,7 @@
       layout:decorate="~{fragments/layout}">
 <body>
   <div layout:fragment="content" th:remove="tag">
-			<form id="replicateaiForm" enctype="multipart/form-data" th:object="${replicateaiBean}" th:action="@{/predict}" method="post">
+			<form id="replicateaiForm" enctype="multipart/form-data" th:object="${formBean}" th:action="@{/predict}" method="post">
 				<h6 class="m-3">[[#{description}]]</h6>
 				<div class="m-3 border border-info rounded">				    
 				    <label for="father" class="form-label mx-2">[[#{father}]]</label>
@@ -28,7 +28,7 @@
                         </div>                        
                       </div>
                       <div class="col me-2">  				    
-                        <input class="form-control" type="file" id="mother" name="mother" th:field="*{mother}"accept="image/png, image/jpg, image/jpeg">
+                        <input class="form-control" type="file" id="mother" name="mother" th:field="*{mother}" accept="image/png, image/jpg, image/jpeg">
                       </div>                        
                     </div>	
 				</div>
@@ -36,9 +36,9 @@
 				<div class="m-3 border border-info rounded">
 				  <label class="form-label mx-2"><i class="fa-solid fa-baby text-primary"></i> [[#{gender}]]</label>
 				  <div class="m-2">
-	                <input class="form-check-input" type="radio" name="gender" id="boy" value="boy" checked/>
+	                <input class="form-check-input" type="radio" name="gender" th:field="*{gender}" id="boy" value="boy" checked/>
 	                <label class="form-check-label" for="boy">[[#{boy}]]</label>                  
-	                <input class="form-check-input" type="radio" name="gender" id="girl" value="girl"/>
+	                <input class="form-check-input" type="radio" name="gender" th:field="*{gender}" id="girl" value="girl"/>
 	                <label class="form-check-label" for="girl">[[#{girl}]]</label>
 	              </div>
                 </div>              

@@ -34,7 +34,7 @@ public class ApplicationController {
 
 	@GetMapping("/")
 	public String index(FormBean formBean, Model model, SessionStatus status) {
-		model.addAttribute("replicateaiBean", formBean);
+		model.addAttribute("formBean", formBean);
 		status.setComplete();
 
 		return "index";
@@ -42,7 +42,7 @@ public class ApplicationController {
 
 	@ResponseBody
 	@PostMapping("/predict")
-	public String predict(@ModelAttribute("replicateaiBean") FormBean formBean, Model model, HttpSession session) {
+	public String predict(@ModelAttribute("formBean") FormBean formBean, Model model, HttpSession session) {
 		log.info("Getting prediction from Replicateai");
 		String result = "Fatal Error";
 		try {

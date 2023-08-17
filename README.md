@@ -35,4 +35,4 @@ G -- Test with<br/>InternetBrowser --> H{http://localhost:8080}
 
 ### Tutorial
 
-<a  href="http://www.youtube.com/watch?feature=player_embedded&v=AlkpElvcUPU"  target="_blank"><img  src="http://img.youtube.com/vi/AlkpElvcUPU/0.jpg"  alt="How to Create Web Client for Replicate AI's Image Prediction using Java/JEE, Springboot, Thymeleaf, Bootstrap, HTML5, jQuery, CSS" width="240"  height="180"  border="10"  /></a>
+<a  href="http://www.youtube.com/watch?feature=player_embedded&v=MiHdtssm2V8"  target="_blank"><img  src="http://img.youtube.com/vi/MiHdtssm2V8/0.jpg"  alt="How to Create Web Client for Replicate AI's Image Prediction using Java/JEE, Springboot, Thymeleaf, Bootstrap, HTML5, jQuery, CSS" width="240"  height="180"  border="10"  /></a>

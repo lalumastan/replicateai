@@ -30,7 +30,7 @@ G -- Test with<br/>InternetBrowser --> H{http://localhost:8080}
 <li>Compile and build the code using Eclipse</li>
 <li>Run the development server using Eclipse</li>
 <li>Open <a  href="http://localhost:8080" target="_new">http://localhost:8080</a> with your browser to see the result.</li>
-<li><a href="https://aiweb-plum.vercel.app/" target="_new">Advanced Application Demo</a></li>
+<li><a href="https://icsdiscover.great-site.net/?site=aw" target="_new">Advanced Application Demo</a></li>
 </ul>
 
 ### Tutorial

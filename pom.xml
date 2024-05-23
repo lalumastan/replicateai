@@ -15,7 +15,7 @@
 	<name>replicateai</name>
 	<description>Replicate AI Web Application</description>
 	<properties>
-		<java.version>20</java.version>
+		<java.version>16</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
